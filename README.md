@@ -17,9 +17,14 @@ Doctrine\DBAL\Types\Type::addType('ordered_guid','Mbbender\Doctrine\DBAL\Types\O
 ```
 
 ###In Laravel
-require `"atrauzzi/laravel-doctrine":"dev-master"`
+Install https://github.com/atrauzzi/laravel-doctrine
 
-In doctrine.php add the custom_type `ordered_guid => 'Mbbender\Doctrine\DBAL\Types\OrderedGuidType'`
+In config/doctrine.php add
+```
+'custom_type' => [
+  `'ordered_guid' => 'Mbbender\Doctrine\DBAL\Types\OrderedGuidType'`
+]
+```
 
 ##Implement In Entity
 ```PHP
