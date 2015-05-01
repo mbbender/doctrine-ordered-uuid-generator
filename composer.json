@@ -1,0 +1,20 @@
+{
+    "name": "mbbender/doctrine-ordered-uuid-generator",
+    "description": "Adds an Ordered UUID type for MySQL which replaces the CHAR(36) with a re-arranged UUID() string as a BINARY 16 which significantly increases performance.",
+    "keywords": ["doctrine2","mysql"],
+    "require": {
+        "doctrine/orm": "2.5.*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michael Bender",
+            "email": "michaelbenbender@gmail.com"
+        }
+    ],
+    "autoload": {
+      "psr-4": {
+        "Bender\\Doctrine\\": "src/"
+      }
+    }
+}
