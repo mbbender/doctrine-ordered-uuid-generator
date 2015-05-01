@@ -1,4 +1,4 @@
-<?php  namespace Bender\Doctrine\DBAL\Types;
+<?php  namespace Mbbender\Doctrine\DBAL\Types;
 
 use Doctrine\DBAL\Types\GuidType;
 use Doctrine\DBAL\Platforms\AbstractPlatform;

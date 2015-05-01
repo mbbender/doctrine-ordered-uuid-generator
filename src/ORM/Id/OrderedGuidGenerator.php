@@ -1,4 +1,4 @@
-<?php namespace Bender\Doctrine\ORM\Id;
+<?php namespace Mbbender\Doctrine\ORM\Id;
 
 use Doctrine\DBAL\DBALException;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
