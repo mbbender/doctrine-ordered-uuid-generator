@@ -39,6 +39,22 @@ class OrderedGuidType extends GuidType
     /**
      * {@inheritdoc}
      */
+    public function convertToDatabaseValue($value, AbstractPlatform $platform)
+    {
+        try{
+            $value = hex2bin($value);
+        }
+        catch(\ErrorException $e)
+        {
+
+        }
+
+        return $value;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getName()
     {
         return self::ORDEREDGUID;
