@@ -18,13 +18,15 @@ class OrderedGuidGenerator extends AbstractIdGenerator{
      */
     public function generate(EntityManager $em, $entity)
     {
-        // Check for MySQL (only supported database)
-        if($em->getConnection()->getDatabase()->getName() !== 'mysql')
-            throw DBALException::notSupported($em->getConnection()->getDatabase()->getName());
+        $conn = $em->getConnection();
 
-        return 'SELECT '.$this->getOrderedGuidExpression()
-            .' FROM (SELECT '.$em->getConnection()->getDatabasePlatform()->getGuidExpression()
-            .' as uuid) as t1';
+        // Check for MySQL (only supported database)
+        if($conn->getDatabasePlatform()->getName() !== 'mysql')
+            throw DBALException::notSupported($conn->getDatabase()->getName());
+
+        $sql = 'SELECT '.$this->getOrderedGuidExpression();
+
+        return $conn->query($sql)->fetchColumn(0);
     }
 
     protected function getOrderedGuidExpression()
