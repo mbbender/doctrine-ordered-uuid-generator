@@ -15,7 +15,8 @@ class OrderedGuidType extends GuidType
         $field['length'] = 36;
         $field['fixed']  = true;
 
-        $fieldDeclaration = array_merge($field, $fieldDeclaration);
+        // TODO: Would prefer to allow $fieldDeclaration to override $field, but fixed = false is being passed in somewhere
+        $fieldDeclaration = array_merge($fieldDeclaration, $field);
 
         return $platform->getBinaryTypeDeclarationSQL($fieldDeclaration);
     }
