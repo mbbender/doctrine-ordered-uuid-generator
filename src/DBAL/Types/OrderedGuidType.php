@@ -12,7 +12,7 @@ class OrderedGuidType extends GuidType
      */
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
     {
-        $field['length'] = 36;
+        $field['length'] = 16;
         $field['fixed']  = true;
 
         // TODO: Would prefer to allow $fieldDeclaration to override $field, but fixed = false is being passed in somewhere
