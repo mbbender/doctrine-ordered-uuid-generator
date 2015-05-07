@@ -36,3 +36,10 @@ In config/doctrine.php add
  */
 private $id;
 ```
+
+#Notes
+Basic testing done with MySQL and Sqlite.
+
+#Contributions
+If you'd like to add a database system you just have to add a strategy for generating the
+UUID in the form stated in the linked article above for your database system in the OrderedGuidTYpe file.
