@@ -4,7 +4,7 @@ Relationships have not been tested. Hydration has not been tested. Performance h
 The purpose of this Doctrine2 Id generator is to increase performance when using a UUID for entities. 
 It creates an ordered UUID based on the methods described in Karthik Appigatla's article (http://www.percona.com/blog/2014/12/19/store-uuid-optimized-way/).
 
-##Install
+#Installation and Usage
 
 Add to composer require
 ```JSON
