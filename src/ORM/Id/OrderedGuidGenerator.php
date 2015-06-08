@@ -38,13 +38,18 @@ class OrderedGuidGenerator extends AbstractIdGenerator {
 
         $id = $conn->query($sql)->fetchColumn(0);
 
-        switch ($name)
-        {
-            case 'sqlite':
-                return hex2bin($id);
-            default:
-                return $id;
-        }
+        return $id;
+
+        // Remove switch to bypass hex2bin call for now until a presist call to convert value is
+        // implemented in Doctrine.
+
+//        switch ($name)
+//        {
+//            case 'sqlite':
+//                return hex2bin($id);
+//            default:
+//                return $id;
+//        }
     }
 
     /**
@@ -53,7 +58,8 @@ class OrderedGuidGenerator extends AbstractIdGenerator {
      */
     protected function getOrderedGuidExpression($uuid_expression)
     {
-        return "SELECT UNHEX(CONCAT(SUBSTR(uuid, 15, 4),SUBSTR(uuid, 10, 4),SUBSTR(uuid, 1, 8),SUBSTR(uuid, 20, 4),SUBSTR(uuid, 25))) FROM ({$uuid_expression} as uuid) as t1";
+        //return "SELECT UNHEX(CONCAT(SUBSTR(uuid, 15, 4),SUBSTR(uuid, 10, 4),SUBSTR(uuid, 1, 8),SUBSTR(uuid, 20, 4),SUBSTR(uuid, 25))) FROM ({$uuid_expression} as uuid) as t1";
+        return "SELECT CONCAT(SUBSTR(uuid, 15, 4),SUBSTR(uuid, 10, 4),SUBSTR(uuid, 1, 8),SUBSTR(uuid, 20, 4),SUBSTR(uuid, 25)) FROM ({$uuid_expression} as uuid) as t1";
     }
 
     /**

@@ -12,18 +12,19 @@ class OrderedGuidType extends GuidType
      */
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
     {
-        $field['length'] = 16;
-        $field['fixed']  = true;
-
-        // TODO: Would prefer to allow $fieldDeclaration to override $field, but fixed = false is being passed in somewhere
-        $fieldDeclaration = array_merge($fieldDeclaration, $field);
-
-        return $platform->getBinaryTypeDeclarationSQL($fieldDeclaration);
+//        $field['length'] = 16;
+//        $field['fixed']  = true;
+//
+//        // TODO: Would prefer to allow $fieldDeclaration to override $field, but fixed = false is being passed in somewhere
+//        $fieldDeclaration = array_merge($fieldDeclaration, $field);
+//
+//        return $platform->getBinaryTypeDeclarationSQL($fieldDeclaration);
+        return $platform->getGuidTypeDeclarationSQL($fieldDeclaration);
     }
 
     /**
      * {@inheritdoc}
-     */
+
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
         if ($value === null) {
@@ -36,10 +37,11 @@ class OrderedGuidType extends GuidType
 
         return bin2hex($value);
     }
+     * */
 
     /**
      * {@inheritdoc}
-     */
+
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
         try{
@@ -52,6 +54,7 @@ class OrderedGuidType extends GuidType
 
         return $value;
     }
+     * */
 
     /**
      * {@inheritdoc}
